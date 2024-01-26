@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _score;
     private UI_Manager _uiManager;
-
+    private Canvas _gameOver;
     // Start is called before the first frame update
     void Start()
     {
@@ -117,6 +117,7 @@ public class Player : MonoBehaviour
         {
             _spawnManager.OnPlayerDeath();
             Destroy(this.gameObject);
+            _uiManager.GameOverText();
         }
     }
 

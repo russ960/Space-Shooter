@@ -8,6 +8,7 @@ TagManager:
   - Laser
   - SpeedUp
   - ShieldUp
+  - GameOver
   layers:
   - Default
   - TransparentFX
