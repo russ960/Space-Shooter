@@ -30,7 +30,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private int _score;
     private UI_Manager _uiManager;
-    private Canvas _gameOver;
+    private Canvas _gameOver; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -88,7 +89,6 @@ public class Player : MonoBehaviour
 
     void FireLaser()
     {
-        
         _canFire = Time.time + _fireRate;
         if (_isTripleShotActive == true)
         {
@@ -98,8 +98,6 @@ public class Player : MonoBehaviour
         {
             Instantiate(_laserPreFab, transform.position + _laserOffset, Quaternion.identity);
         }
-        
-        
     }
 
     public void Damage()

@@ -16,6 +16,7 @@ public class UI_Manager : MonoBehaviour
     private int _score;
    [SerializeField]
    private Text _gameOver;
+   private float _flickerWait = .5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +41,22 @@ public class UI_Manager : MonoBehaviour
 
     public void GameOverText()
     {
-        _gameOver.gameObject.SetActive(true);
+        StartCoroutine(GameOverFlickerCoroutine());
     }
+
+   IEnumerator GameOverFlickerCoroutine()
+   {
+        while (true)
+        {
+            if (_gameOver.gameObject.activeSelf)
+                {
+                    _gameOver.gameObject.SetActive(false);
+                }
+            else 
+                {
+                    _gameOver.gameObject.SetActive(true);
+                }
+            yield return new WaitForSeconds(_flickerWait);
+        }
+   }
 }
