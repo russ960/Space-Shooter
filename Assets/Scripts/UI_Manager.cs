@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class UI_Manager : MonoBehaviour
@@ -16,17 +18,28 @@ public class UI_Manager : MonoBehaviour
     private int _score;
    [SerializeField]
    private Text _gameOver;
+   [SerializeField]
+   private Text _resetGame;
    private float _flickerWait = .5f;
+   [SerializeField]
+   private GameManager _gameManager;
     // Start is called before the first frame update
     void Start()
     {
         _gameOver.gameObject.SetActive(false);
+        _resetGame.gameObject.SetActive(false);
+        _gameManager = GameObject.Find("Game_Manager").GetComponent<GameManager>();
+
+        if (_gameManager == null)
+        {
+            Debug.LogError("Game Manager is null");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void SetScore(int score)
@@ -41,6 +54,8 @@ public class UI_Manager : MonoBehaviour
 
     public void GameOverText()
     {
+        _resetGame.gameObject.SetActive(true);
+        _gameManager.GameOver();
         StartCoroutine(GameOverFlickerCoroutine());
     }
 

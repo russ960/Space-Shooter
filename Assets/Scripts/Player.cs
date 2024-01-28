@@ -153,4 +153,5 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(5);
         _speed = _speed / _speedMultiplyer;
     }
+
 }

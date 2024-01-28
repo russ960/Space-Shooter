@@ -51,6 +51,11 @@ public class Spawn_Manager : MonoBehaviour
 
    public void OnPlayerDeath()
    {
-          _stopSpawning = true;
+        _stopSpawning = true;
+   }
+
+   public void OnPlayerReset()
+   {
+        _stopSpawning = false;
    }
 }
