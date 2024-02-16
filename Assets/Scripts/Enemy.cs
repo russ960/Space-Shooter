@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 
@@ -8,6 +9,8 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float _speed = 4.0f;
     private Player _player;
+
+    Animator enemyAnimator;
     
     void ResetPostionRandom() {
         float transformX = Random.Range(-9.0f, 9.0f);
@@ -20,6 +23,11 @@ public class Enemy : MonoBehaviour
     {
          ResetPostionRandom();
          _player = GameObject.FindGameObjectsWithTag("Player")[0].GetComponent<Player>();
+         if (_player == null)
+         {
+            Debug.LogError("Player object does not exist.");
+         }
+         enemyAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -44,7 +52,9 @@ public class Enemy : MonoBehaviour
             if (player != null)
             {
                 player.Damage();
-                Destroy(this.gameObject);
+                _speed = 0;
+                enemyAnimator.SetTrigger("OnEnemyDeath");
+                Destroy(this.gameObject, 2.8f);
             }
             else
             {
@@ -59,8 +69,11 @@ public class Enemy : MonoBehaviour
                 if (_player != null)
                 {
                     _player.PlayerScored(10);
+                    
                 }
-                Destroy(this.gameObject);
+                _speed = 0;
+                enemyAnimator.SetTrigger("OnEnemyDeath");
+                Destroy(this.gameObject, 2.8f);
             }
             
             ResetPostionRandom();
