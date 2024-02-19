@@ -22,7 +22,7 @@ public class Astroid : MonoBehaviour
         {
             Instantiate(_explosionPreFab, transform.position, Quaternion.identity);
             Destroy(other.gameObject);
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 0.5f);
         }
     }
 }
