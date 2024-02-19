@@ -20,12 +20,9 @@ public class Astroid : MonoBehaviour
         
         if (other.tag == "Laser")
         {
-            if (transform.parent != null)
-            {
-                Instantiate(_explosionPreFab, transform.position, Quaternion.identity);
-                Destroy(other.gameObject);
-                Destroy(this.gameObject);
-            }
+            Instantiate(_explosionPreFab, transform.position, Quaternion.identity);
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
         }
     }
 }
