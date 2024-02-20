@@ -75,8 +75,6 @@ public class Enemy : MonoBehaviour
                 enemyAnimator.SetTrigger("OnEnemyDeath");
                 Destroy(this.gameObject, 2.8f);
             }
-            
-            ResetPostionRandom();
         }
     }
 }

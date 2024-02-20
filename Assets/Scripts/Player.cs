@@ -28,6 +28,10 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _shieldVisualizer;
     [SerializeField]
+    private GameObject _rightDamage;
+    [SerializeField]
+    private GameObject _leftDamage;
+    [SerializeField]
     private int _score;
     private UI_Manager _uiManager;
     private Canvas _gameOver; 
@@ -109,7 +113,18 @@ public class Player : MonoBehaviour
             return;
         }
         _lives -= 1;
+        switch (_lives)
+        {
+            case 1:
+            _leftDamage.SetActive(true);
+            break;
+            case 2: 
+            _rightDamage.SetActive(true);
+            break;
+        }
         _uiManager.SetLives(_lives);
+
+        
 
         if (_lives < 1)
         {
