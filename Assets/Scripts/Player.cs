@@ -35,6 +35,10 @@ public class Player : MonoBehaviour
     private int _score;
     private UI_Manager _uiManager;
     private Canvas _gameOver; 
+    [SerializeField]
+    private AudioClip _laserAudio;
+    [SerializeField]
+    private AudioClip _powerupSoundClip;
 
     // Start is called before the first frame update
     void Start()
@@ -102,6 +106,7 @@ public class Player : MonoBehaviour
         {
             Instantiate(_laserPreFab, transform.position + _laserOffset, Quaternion.identity);
         }
+        AudioSource.PlayClipAtPoint(_laserAudio, transform.position);
     }
 
     public void Damage()
@@ -136,18 +141,20 @@ public class Player : MonoBehaviour
 
     public void PlayerScored(int points)
     {
-        _score += points;
+        _score += points;        
     }
 
     public void TripleShotPowerup()
     {
         _isTripleShotActive = true;
+        AudioSource.PlayClipAtPoint(_powerupSoundClip, transform.position);
         StartCoroutine(TripleShotPowerdownCoroutine());
     }
 
     public void ShieldPowerup()
     {
         _isShieldUp = true;
+        AudioSource.PlayClipAtPoint(_powerupSoundClip, transform.position);
         _shieldVisualizer.SetActive(true);
     }
 
@@ -160,6 +167,7 @@ public class Player : MonoBehaviour
     public void SpeedPowerup()
     {
         _speed = _speed * _speedMultiplyer;
+        AudioSource.PlayClipAtPoint(_powerupSoundClip, transform.position);
         StartCoroutine(SpeedPowerdownCoroutine());
     }
 

@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float _speed = 4.0f;
     private Player _player;
+    [SerializeField]
+    private AudioClip _explosionSoundClip;
 
     Animator enemyAnimator;
     
@@ -76,5 +78,6 @@ public class Enemy : MonoBehaviour
                 Destroy(this.gameObject, 2.8f);
             }
         }
+        AudioSource.PlayClipAtPoint(_explosionSoundClip, transform.position);
     }
 }
