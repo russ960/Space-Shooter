@@ -75,3 +75,8 @@ crashlytics-build.properties
 .vscode/
 
 /Windows Playable Build/*
+
+/Assets/SampleScenes/*
+/Assets/Standard Assets/*
+/Assets/SampleScenes.meta
+/Assets/Standard Assets.meta
