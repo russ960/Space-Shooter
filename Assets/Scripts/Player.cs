@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Vector3 _laserOffset = new Vector3 (0.0f, 1.05f, 0);
     [SerializeField]
+    private Vector3 _laserOffsetTripleShot = new Vector3 (-0.25f, 1.05f, 0);
+    [SerializeField]
     private float _fireRate = 0.5f;
     private float _canFire = -1f;
     [SerializeField]
@@ -113,7 +115,7 @@ public class Player : MonoBehaviour
         _canFire = Time.time + _fireRate;
         if (_isTripleShotActive == true)
         {
-            Instantiate(_tripleShotPreFab, transform.position, Quaternion.identity);
+            Instantiate(_tripleShotPreFab, transform.position + _laserOffsetTripleShot, Quaternion.identity);
         }
         else
         {
