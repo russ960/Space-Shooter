@@ -9,7 +9,6 @@ public class Spawn_Manager : MonoBehaviour
     [SerializeField]
     private GameObject _enemyContainer;
     [SerializeField]
-    //private GameObject _powerPreFab;
     private GameObject[] _powerPreFab;
 
     private bool _stopSpawning = false;
