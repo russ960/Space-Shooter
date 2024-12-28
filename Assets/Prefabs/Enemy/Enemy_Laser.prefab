@@ -181,6 +181,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8033680544174627252, guid: cae3166d1caac124391a827a040b9652,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8033680544174627252, guid: cae3166d1caac124391a827a040b9652,
+        type: 3}
       propertyPath: m_TagString
       value: EnemyLaser
       objectReference: {fileID: 0}
