@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
@@ -20,6 +21,12 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         } 
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Escape pressed");
+            Application.Quit();
+        }         
     }
 
     public void GameOver()
