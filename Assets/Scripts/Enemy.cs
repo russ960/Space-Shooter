@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour
     {
         
 
-        if (other.transform.name == "Player")
+        if (other.transform.tag == "Player")
         {
             Player player = other.transform.GetComponent<Player>();
             

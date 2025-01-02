@@ -698,6 +698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGameOver: 0
+  isCoopMode: 1
 --- !u!4 &481679616
 Transform:
   m_ObjectHideFlags: 0
@@ -1258,6 +1259,8 @@ MonoBehaviour:
   _score: 0
   _laserAudio: {fileID: 8300000, guid: 75676f361bdfeaf41a46623e95df3dbc, type: 3}
   _powerupSoundClip: {fileID: 8300000, guid: 5ee343246919d2b4bba63ae629e95494, type: 3}
+  isPlayerOne: 0
+  isPlayerTwo: 1
 --- !u!212 &1044986840
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1376,6 +1379,8 @@ MonoBehaviour:
   _score: 0
   _laserAudio: {fileID: 8300000, guid: 75676f361bdfeaf41a46623e95df3dbc, type: 3}
   _powerupSoundClip: {fileID: 8300000, guid: 5ee343246919d2b4bba63ae629e95494, type: 3}
+  isPlayerOne: 1
+  isPlayerTwo: 0
 --- !u!212 &1154753000
 SpriteRenderer:
   m_ObjectHideFlags: 0
