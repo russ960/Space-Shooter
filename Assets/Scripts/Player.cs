@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _animator = GetComponent<Animator>();
         // Set the start position to 0, 0, 0
         switch(transform.name) 
         {
