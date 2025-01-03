@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Packages.Rider.Editor.UnitTesting;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
@@ -128,8 +129,8 @@ public class Player : MonoBehaviour
             float verticalInput = Input.GetAxis("Vertical");
         #endif
 
-        _animator.SetFloat("Direction", horizontalInput);
-        Debug.Log(horizontalInput);
+        _animator.SetFloat("Direction", Input.GetAxisRaw("Horizontal"));
+        Debug.Log("Test: "+ Input.GetAxisRaw("Horizontal"));
         transform.Translate(Vector3.right * horizontalInput * _speed * Time.deltaTime);
         transform.Translate(Vector3.up * verticalInput * _speed * Time.deltaTime);            
 
