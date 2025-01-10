@@ -165,11 +165,17 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
+            _animator.SetFloat("Direction", -1);
             transform.Translate(Vector3.left * _speed * Time.deltaTime);
         }
         else if (Input.GetKey(KeyCode.D))
         {
+            _animator.SetFloat("Direction", 1);
             transform.Translate(Vector3.right * _speed * Time.deltaTime);
+        }
+        else
+        {
+            _animator.SetFloat("Direction", 0);
         }
 
         if (Input.GetKey(KeyCode.W))
