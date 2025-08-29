@@ -131,7 +131,6 @@ public class Player : MonoBehaviour
         #endif
 
         _animator.SetFloat("Direction", Input.GetAxisRaw("Horizontal"));
-        Debug.Log("Test: "+ Input.GetAxisRaw("Horizontal"));
         transform.Translate(Vector3.right * horizontalInput * _speed * Time.deltaTime);
         transform.Translate(Vector3.up * verticalInput * _speed * Time.deltaTime);            
 

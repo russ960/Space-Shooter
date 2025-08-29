@@ -64,7 +64,7 @@ public class UI_Manager : MonoBehaviour
         while (true)
         {
             if (_gameOver.gameObject.activeSelf)
-                {
+                {   
                     _gameOver.gameObject.SetActive(false);
                 }
             else 

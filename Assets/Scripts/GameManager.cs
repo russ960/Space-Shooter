@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private bool isGameOver;
     public bool isCoopMode = false;
-    private bool _isPaused = false;
+    //private bool _isPaused = false;
     [SerializeField]
     private GameObject _pauseMenu;
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            _isPaused = true;
+            //_isPaused = true;
             Time.timeScale = 0;
             _pauseMenu.SetActive(true);
         }
@@ -38,10 +38,25 @@ public class GameManager : MonoBehaviour
             Debug.Log("Escape pressed");
             Application.Quit();
         }         
+
     }
 
     public void GameOver()
     {
         isGameOver = true;
+    }
+
+    public void ResumeGame()
+    {
+        //_isPaused = false;
+        Time.timeScale = 1;
+        _pauseMenu.SetActive(false);
+    }
+
+    public void ReturnMainMenu()
+    {
+        isGameOver = true;
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1;
     }
 }
