@@ -238,6 +238,7 @@ public class Player : MonoBehaviour
         {
             _spawnManager.OnPlayerDeath();
             Destroy(this.gameObject);
+            _uiManager.SetHighScore(_score);
             _uiManager.GameOverText();
         }
     }

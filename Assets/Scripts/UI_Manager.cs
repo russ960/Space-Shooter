@@ -10,12 +10,15 @@ public class UI_Manager : MonoBehaviour
     // Text handle
     [SerializeField]
     private Text _scoreText;
+    [SerializeField]
+    private Text _bestText;
     private Player _player;
     [SerializeField]
     private Image _livesImg;
     [SerializeField]
     private Sprite[] _liveSprites;
     private int _score;
+    private int _highScore;
    [SerializeField]
    private Text _gameOver;
    [SerializeField]
@@ -45,6 +48,15 @@ public class UI_Manager : MonoBehaviour
     public void SetScore(int score)
     {
         _scoreText.text = "Score: " + score;
+    }
+
+    public void SetHighScore(int score)
+    {
+        if (_highScore < score)
+        {
+            _highScore = score;
+            _bestText.text = "Best: " + _highScore;
+        }
     }
 
     public void SetLives(int currentLives)
