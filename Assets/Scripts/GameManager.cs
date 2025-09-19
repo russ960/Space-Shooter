@@ -10,12 +10,14 @@ public class GameManager : MonoBehaviour
     private bool isGameOver;
     public bool isCoopMode = false;
     //private bool _isPaused = false;
+    private Animator _pauseAnimator;
     [SerializeField]
     private GameObject _pauseMenu;
     // Start is called before the first frame update
     void Start()
     {
-
+        _pauseAnimator = GameObject.Find("Pause_Menu_Panel").GetComponent<Animator>();
+        _pauseAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
     }
 
     // Update is called once per frame
@@ -24,8 +26,9 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             //_isPaused = true;
-            Time.timeScale = 0;
             _pauseMenu.SetActive(true);
+            _pauseAnimator.SetBool("is_paused",true);
+            Time.timeScale = 0;
         }
 
         if (Input.GetKeyDown(KeyCode.R) && isGameOver == true)
@@ -49,8 +52,8 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         //_isPaused = false;
+        _pauseMenu.SetActive(false); 
         Time.timeScale = 1;
-        _pauseMenu.SetActive(false);
     }
 
     public void ReturnMainMenu()
